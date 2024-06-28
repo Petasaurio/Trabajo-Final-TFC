@@ -57,9 +57,9 @@ def graficaParte1(opcion):  # valores de opcion:
     
     if opcion:
         plt.title("Trayectoria de cometas con distinto Radio del Perihelio y la orbita de la Tierra")
-        plt.savefig("graficaOpcional.pdf", dpi=500)
+        plt.savefig("graficas/graficaOpcional.pdf", dpi=500)
     else:
         plt.title("Trayectoria del cometa C/1823 Y1 y la orbita de la Tierra")
-        plt.savefig("grafica.pdf", dpi=500)
+        plt.savefig("graficas/grafica.pdf", dpi=500)
     
     plt.show()
