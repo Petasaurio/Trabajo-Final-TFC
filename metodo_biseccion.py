@@ -28,15 +28,3 @@ def biseccion(t, error):
                 E=(b-a)/2
 
         return [c,E]
-        
-        
-        
-        RP=0.22674
-        r = 2*RP/(1+m.cos(c))
-        x = (-1)*r*m.cos(c)
-        y =      r*m.sin(c)
-    
-        print()
-        print("El angulo buscado es {} , y fue obtenido con un error de {}".format(c,E))
-        print(kepler(c-E) , kepler(c) , kepler(c+E))    #acá muestro el intervalo de tiempos que obtengo de la aproximación para verificar que el t ingresado cae en ese intervalo
-        print("Las coordendas x e y del punto buscado son: ({} , {}) UA".format(x,y))
