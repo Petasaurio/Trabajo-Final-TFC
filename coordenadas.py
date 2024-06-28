@@ -1,12 +1,12 @@
 import math as m
 
-def polares(RP, num):         #toma el perihelio y un numero para ordenar los multiples archivos de coordenadas
+def polares(RP, num, ang_max):         #toma el perihelio, un numero que usa para ordenar los multiples archivos de coordenadas y el angulo que define el intervalo de graficacion
     fichero = open("datos/polar/tablaPolares_{}.dat".format(num), "w")
     fichero.write("Tabla del radio en funcion del angulo para trayectoria parabolica de perihelio {} UA:\n   Angulo [rad]\t\t\t\t Radio [UA]\n".format(RP))
 
-    theta = -3/4*m.pi                                     #valor inicial de theta
+    theta = -ang_max                   #valor inicial de theta, arranca desde el valor opuesto al maximo y terminará en el maximo
 
-    while theta <= 3/4*m.pi:                              #iteraciones con sentencia while para calcular los radios y escribirlos en el fichero en funcion de los ángulos
+    while theta <= ang_max:                              #iteraciones con sentencia while para calcular los radios y escribirlos en el fichero en funcion de los ángulos
         r = 2*RP/(1+m.cos(theta))
         fichero.write("{}\t\t\t{}\n".format(theta, r))
         theta += 0.005
@@ -29,3 +29,16 @@ def cartesianas(num):
 
     ficheroPol.close()
     ficheroCar.close()
+
+def kepler(theta):                  #dado un angulo theta, esta devuelve el instante de tiempo (en segundos) en el que pasa por alli
+    import math as m
+
+    RP=0.22674*1.496E11             #conversion de RP de UA a metros
+    G=6.67E-11                      #constante de gravitacion universal en [N m^2 kg^-2]
+    M=1.989E30                      #masa del sol en [kg]
+
+    VP= m.sqrt(2*G*M/RP)                    #velocidad en el perihelio en m/s
+    K=(G**2)*(M**2)/(RP**3)/(VP**3)         #constante K en s^-1
+
+    t=( m.tan(theta/2)**3 + 3*m.tan(theta/2) ) / (6*K)         #despejo el tiempo de la ecuacion de kepler  
+    return t
