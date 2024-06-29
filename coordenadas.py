@@ -1,4 +1,6 @@
-def polares(RP, num, ang_max):         # toma el perihelio, un numero que usa para ordenar los multiples archivos que crea y el angulo que define el intervalo de trabajo
+# Funcion para crear tablas de datos en polares. Toma el perihelio, un numero que usa para ordenar los multiples archivos que crea y el angulo que define el intervalo de trabajo
+
+def polares(RP, num, ang_max):
     import math as m
 
     fichero = open("datos/polar/tablaPolares_{}.dat".format(num), "w")
@@ -13,7 +15,10 @@ def polares(RP, num, ang_max):         # toma el perihelio, un numero que usa pa
 
     fichero.close()
 
-def cartesianas(num):                  # toma un numero que sirve para buscar el archivo de coordenadas polares que corresponda
+
+# Funcion para crear tablas de datos en cartesianas. 'num' sirve para buscar el archivo de coordenadas polares que corresponda
+
+def cartesianas(num):
     import math as m
 
     ficheroPol = open("datos/polar/tablaPolares_{}.dat".format(num), "r")                   # abrir ficheros para leer y escribir
@@ -32,7 +37,10 @@ def cartesianas(num):                  # toma un numero que sirve para buscar el
     ficheroPol.close()
     ficheroCar.close()
 
-def kepler(theta):                     # dado un angulo theta, devuelve el instante de tiempo (en segundos) en el que pasa por alli
+
+# Funcion que dado un angulo theta, devuelve el instante de tiempo (en segundos) en el que pasa por alli
+
+def kepler(theta):
     import math as m
 
     RP=0.22674*1.496E11                  # conversion de RP de UA a metros
@@ -45,7 +53,10 @@ def kepler(theta):                     # dado un angulo theta, devuelve el insta
     t = ( m.tan(theta/2)**3 + 3*m.tan(theta/2) ) / (6*K)         # calculo del tiempo con la ecuacion de kepler  
     return t
 
-def intervalosT(paso, cant_puntos):    # dado un paso o salto de tiempo y una cantidad de puntos, calcula las coordenadas en los tiempos correspondientes
+
+# Funcion que dado un paso (salto de tiempo) y una cantidad de puntos, calcula las coordenadas en los tiempos correspondientes
+
+def intervalosT(paso, cant_puntos):
     import math as m
     from metodo_biseccion import biseccion
 
@@ -53,8 +64,8 @@ def intervalosT(paso, cant_puntos):    # dado un paso o salto de tiempo y una ca
     fichero.write("Tabla de coordenadas x e y en funcion del tiempo con saltos de {} segundos\n".format(paso))
     fichero.write("\t\t x [UA] \t\t\t y [UA] \t\t\t Tiempo [s]\n")
 
-    for i in range(1,cant_puntos+1):               # iteraciones para calcular coordenadas a partir de la funcion 'biseccion' y escribir el fichero
-        theta=biseccion(i*paso, 0.001)             # se elije arbitrariamente un error igual a 0.001
+    for i in range(1,cant_puntos+1):                 # iteraciones para calcular coordenadas a partir de la funcion 'biseccion' y escribir el fichero
+        theta = biseccion(i*paso, 0.001)             # se elije arbitrariamente un error igual a 0.001
         r = 2 * 0.22674 / (1+m.cos(theta[0]))
         x_temp = (-1)*r*m.cos(theta[0]) 
         y_temp =      r*m.sin(theta[0])

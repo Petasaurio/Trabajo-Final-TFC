@@ -24,7 +24,7 @@ def menu():
     print("\t\t    entre 0 y 3 meses y graficar resultados en el plano xy junto a la órbita terrestre")
     return input("\n\t\t---> ")
 
-sel = 1                 # valor arbitrario e inicial para la seleccion
+sel = 1      # valor arbitrario e inicial para la seleccion
 while sel != "0":
     sel = menu()
     if sel == "0":

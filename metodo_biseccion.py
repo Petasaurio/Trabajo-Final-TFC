@@ -1,4 +1,4 @@
-# en este script se le realiza el metodo de la biseccion a la funcion 'kepler', para aproximar
+# En este script se le realiza el metodo de la biseccion a la funcion 'kepler', para aproximar
 # el angulo correspondiente a un tiempo dado. Si se desea realizar el metodo de la biseccion a
 # otra funcion, se debera cambiar el codigo para importar al modulo y funcion correctas.
 
