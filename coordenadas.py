@@ -49,7 +49,7 @@ def intervalosT(paso, cant_puntos):    # dado un paso o salto de tiempo y una ca
     import math as m
     from metodo_biseccion import biseccion
 
-    fichero = open("datos/parte2/tablaPuntosExtra.dat","w")      # abrir y escribir titulo de tabla a utilizar
+    fichero = open("datos/kepler/tablaPuntosExtra.dat","w")      # abrir y escribir titulo de tabla a utilizar
     fichero.write("Tabla de coordenadas x e y en funcion del tiempo con saltos de {} segundos\n".format(paso))
     fichero.write("\t\t x [UA] \t\t\t y [UA] \t\t\t Tiempo [s]\n")
 

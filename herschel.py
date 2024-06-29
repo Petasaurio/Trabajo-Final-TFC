@@ -22,7 +22,7 @@ def menu():
     print("\t\t    (usando el valor observado por Herschel de RP)")
     print("\t\t(d) [Opcional] Crear tabla con valores de x e y para distintos tiempos")
     print("\t\t    entre 0 y 3 meses y graficar resultados en el plano xy junto a la órbita terrestre")
-    return input("\t\t---> ")
+    return input("\n\t\t---> ")
 
 sel = 1                 # valor arbitrario e inicial para la seleccion
 while sel != "0":
@@ -31,13 +31,13 @@ while sel != "0":
         print("Cerrando programa...\n")
         break
     elif sel == "a":
-        g.graficar(1)
+        g.graficar(0)
     elif sel == "b":
-        g.graficar(2)
+        g.graficar(1)
     elif sel == "c":
-        g.graficar(3)
+        g.graficar(2)
     elif sel =="d":
-        g.graficar(4)
+        g.graficar(3)
     else:
         print("ERROR: No se reconoce la orden.\n")
     print("Reiniciar...")
