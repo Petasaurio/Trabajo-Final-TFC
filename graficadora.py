@@ -69,7 +69,7 @@ def graficar(opcion):  # valores de opcion:
             lista_RP=[0.1, 0.25, 0.5, 0.75, 1]   # se trabaja con la lista de posibles valores de RP
             c.polares(lista_RP[n], n+1, ang_max)
             c.cartesianas(n+1)
-            plotFichero(open("datos/cartesiana/tablaCartesianas_{}.dat".format(n), "r"), opcion, lista_RP[n])            
+            plotFichero(open("datos/cartesiana/tablaCartesianas_{}.dat".format(n+1), "r"), opcion, lista_RP[n])            
     elif opcion == 2:                  # segun que iteracion que sea, se llama a distintas funciones para crear las tablas de datos correspondientes
         c.intervalosT(2592000, 3)
         plotFichero(open("datos/kepler/tablaPuntosExtra.dat", "r"), opcion, None)       
