@@ -1,12 +1,14 @@
-import matplotlib.pyplot as plt
-import math as m
+# Desde este menu se administran las funciones y programas del trabajo.
+# Ejecute y seleccione la opcion deseada.
+# Los archivos seran guardados en las carpetas correspondientes.
+
 import graficadora as g
 
 def menu():
     print("¿Qué desea realizar?")
     print("\t\t(0) Salir.\n")
     print("\tParte 1)")
-    print("\t\t(a) Crear tablas de coordenadas polares y cartesianas del cometa")
+    print("\t\t(a) Crear tablas de coordenadas polares y cartesianas del cometa,")
     print("\t\t    y graficar su trayectoria junto a la órbita de la Tierra.")
     print("\t\t    (para el valor observado por Herschel de RP)")
     print("\t\t(b) [Opcional] Crear tablas de coordenadas polares y cartesianas para")
@@ -22,20 +24,20 @@ def menu():
     print("\t\t    entre 0 y 3 meses y graficar resultados en el plano xy junto a la órbita terrestre")
     return input("\t\t---> ")
 
-sel = 1 # valor arbitrario e inicial para la seleccion
+sel = 1                 # valor arbitrario e inicial para la seleccion
 while sel != "0":
     sel = menu()
     if sel == "0":
         print("Cerrando programa...\n")
         break
     elif sel == "a":
-        g.graficaParte1(1)
+        g.graficar(1)
     elif sel == "b":
-        g.graficaParte1(2)
+        g.graficar(2)
     elif sel == "c":
-        g.graficaParte1(3)
+        g.graficar(3)
     elif sel =="d":
-        g.graficaParte1(4)
+        g.graficar(4)
     else:
         print("ERROR: No se reconoce la orden.\n")
     print("Reiniciar...")
