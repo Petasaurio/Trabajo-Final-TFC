@@ -1,4 +1,5 @@
 import math as m
+from metodo_biseccion import biseccion
 
 def polares(RP, num, ang_max):         #toma el perihelio, un numero que usa para ordenar los multiples archivos de coordenadas y el angulo que define el intervalo de graficacion
     fichero = open("datos/polar/tablaPolares_{}.dat".format(num), "w")
@@ -42,3 +43,18 @@ def kepler(theta):                  #dado un angulo theta, esta devuelve el inst
 
     t=( m.tan(theta/2)**3 + 3*m.tan(theta/2) ) / (6*K)         #despejo el tiempo de la ecuacion de kepler  
     return t
+
+def intervalosT(paso, cant_puntos):
+    fichero = open("datos/parte2/tablaPuntosExtra.dat","w")
+    fichero.write("Tabla de coordenadas x e y en funcion del tiempo con saltos de {} segundos\n".format(paso))
+    fichero.write("\t\t x [UA] \t\t\t y [UA] \t\t\t Tiempo [s]\n")
+
+    for i in range(1,cant_puntos+1):                    # iteraciones para calcular coordenadas con 'biseccion', completar listas y escribir el fichero
+        theta=biseccion(i*paso, 0.001)             # se toma como que un mes tiene 30 dias = 2592000 segundos
+        r = 2 * 0.22674 / (1+m.cos(theta[0]))
+        x_temp = (-1)*r*m.cos(theta[0]) 
+        y_temp =      r*m.sin(theta[0])
+            
+        fichero.write("{} \t {} \t {} \n".format(x_temp, y_temp, i*paso))
+    
+    fichero.close()

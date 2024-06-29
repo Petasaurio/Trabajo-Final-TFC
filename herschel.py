@@ -25,14 +25,18 @@ def menu():
 sel = 1 # valor arbitrario e inicial para la seleccion
 while sel != "0":
     sel = menu()
-    if sel == "a":
-        g.graficaParte1(0)
-    elif sel == "b":
+    if sel == "0":
+        print("Cerrando programa...\n")
+        break
+    elif sel == "a":
         g.graficaParte1(1)
-    elif sel == "c":
+    elif sel == "b":
         g.graficaParte1(2)
+    elif sel == "c":
+        g.graficaParte1(3)
     elif sel =="d":
-        print("esta opcion aun no se configuro")
-    elif sel != "0":
-        print("No se reconoce la opcion!!")
+        g.graficaParte1(4)
+    else:
+        print("ERROR: No se reconoce la orden.\n")
+    print("Reiniciar...")
         
