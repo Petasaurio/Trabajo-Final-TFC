@@ -30,7 +30,7 @@ def plotFichero(fichero, opcion, RP):
     elif opcion == 2:
         plt.scatter(lista_x, lista_y, label="Posiciones a 1, 2 y 3 meses del perihelio", s=25, marker="x",color=randColor())
     elif opcion == 3:
-        plt.scatter(lista_x, lista_y, label="Posicion cada 77760 segundos (21.6 horas) despues del perihelio", s=35, marker="+", color=randColor())
+        plt.scatter(lista_x, lista_y, label="Posicion cada 155520 seg (43.2 hs) despues del perihelio", s=25, marker="+", color=randColor())
 
 
 # Funcion graficadora principal
@@ -80,7 +80,7 @@ def graficar(opcion):  # valores de opcion:
         c.intervalosT(2592000, 3)
         plotFichero(open("datos/kepler/tablaPuntosExtra.dat", "r"), opcion, None)       
     elif opcion == 3:
-        c.intervalosT(77760, 100)
+        c.intervalosT(155520, 50)
         plotFichero(open("datos/kepler/tablaPuntosExtra.dat", "r"), opcion, None)
             
 
